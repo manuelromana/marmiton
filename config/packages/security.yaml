@@ -20,11 +20,20 @@ security:
             anonymous: true
             guard:
                 authenticators:
+<<<<<<< HEAD
                     - App\Security\AppCustomAuthenticator
 
             # activate different ways to authenticate
             logout:
                 path: app_logout
+=======
+                    - App\Security\LoginFormAuthenticator
+
+            # activate different ways to authenticate
+            logout:
+                path:   /logout
+                target: /
+>>>>>>> origin/login
             # http_basic: true
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
 
@@ -34,5 +43,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/loged, roles: ROLE_USER }
         # - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/login/success, roles: ROLE_USER }
