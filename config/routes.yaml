@@ -16,3 +16,7 @@ app_lucky_number:
 login:
   path: /login
   defaults: { _controller: 'App\Controller\LoginController::login' }
+
+logout:
+    path: /logout
+    
