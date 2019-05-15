@@ -16,10 +16,6 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('username')
-<<<<<<< HEAD
-            ->add('email')
-=======
->>>>>>> origin/login
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
@@ -34,14 +30,9 @@ class RegistrationFormType extends AbstractType
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
-<<<<<<< HEAD
                 ],
             ])
-=======
-                ], 
-            ])
             ->add('email')
->>>>>>> origin/login
         ;
     }
 
