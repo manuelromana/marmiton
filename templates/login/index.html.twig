@@ -9,12 +9,8 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Hello {{ app.user.username }} ! You are now loged ! </h1>
+    Get back to <A href="{{ url('welcomepage') }}"><input type="button" action="home" value="home"></A>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/bastien/Documents/Etna/Marmiton/src/Controller/LoginController.php'|file_link(0) }}">src/Controller/LoginController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/bastien/Documents/Etna/Marmiton/templates/login/index.html.twig'|file_link(0) }}">templates/login/index.html.twig</a></code></li>
-    </ul>
 </div>
 {% endblock %}

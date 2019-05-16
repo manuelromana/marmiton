@@ -15,6 +15,7 @@
 
     {% if app.user.roles[0] is defined %}
     Click here to <A href="{{ url('login') }}"><input type="button" action="logout" value="logout"></A>
+    If you want to create a <A href="{{ url('recipe') }}"><input type="button" action="recipe" value="recipe"></A>
     {% else %}
     If you want to <A href="{{ url('login') }}"><input type="button" action="login" value="Login"></A>
     Or you want to <A href="{{ url('app_register') }}"><input type="button" action="register" value="register"></A>
