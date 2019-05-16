@@ -14,10 +14,10 @@
     This friendly message is coming from Manu and Bastien :<br><br>
 
     {% if app.user.roles[0] is defined %}
-    Click here to <A href="http://localhost:8000/logout"><input type="button" action="logout" value="logout"></A>
+    Click here to <A href="http://localhost:8080/logout"><input type="button" action="logout" value="logout"></A>
     {% else %}
-    If you want to <A href="http://localhost:8000/login"><input type="button" action="login" value="Login"></A>
-    Or you want to <A href="http://localhost:8000/register"><input type="button" action="register" value="register"></A>
+    If you want to <A href="http://localhost:8080/login"><input type="button" action="login" value="Login"></A>
+    Or you want to <A href="http://localhost:8080/register"><input type="button" action="register" value="register"></A>
     {% endif %}
 </div>
 {% endblock %}
