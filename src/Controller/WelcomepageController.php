@@ -12,6 +12,7 @@ class WelcomepageController extends AbstractController
      */
     public function index()
     {
+        
         return $this->render('welcomepage/index.html.twig', [
             'controller_name' => 'WelcomepageController',
 
