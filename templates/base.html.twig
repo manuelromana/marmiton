@@ -3,10 +3,42 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
     </head>
     <body>
-        {% block body %}Oui sans doute{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand">Navbar</a>
+
+        <form class="form-inline">
+
+
+            {% if app.user.roles[0] is defined %}
+
+                <a class="nav-item nav-link active" href="{{ url('logout') }}">Logout </a>
+                <a class="nav-item nav-link active" href="{{ url('recette') }}">Recette</a>
+
+
+
+            {% else %}
+
+                <a class="nav-item nav-link active" href="{{ url('login') }}">Login </a>
+                <a class="nav-item nav-link" href="{{ url('app_register') }}">Register</a>
+
+            {% endif %}
+        </form>
+    </nav>
+        {% block body %}
+
+        {% endblock %}
+
+
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+
+            <!-- Renders app.js & a webpack runtime.js file
+                <script src="/build/runtime.js"></script>
+                <script src="/build/app.js"></script> -->
+        {% endblock %}
     </body>
 </html>
