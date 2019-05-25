@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Recette;
 use App\Entity\User;
+use App\Service\CreateRecette;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -19,7 +20,7 @@ class RecetteController extends AbstractController
     /**
      * @Route("/recette", name="recette")
      */
-    public function createRecette(Request $request)
+    public function createRecette(Request $request,CreateRecette $createRecette)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
@@ -41,8 +42,11 @@ class RecetteController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $recette = $form->getData();
+            $createRecette->setRecette($recette,$user);
 
-            $entityManager = $this->getDoctrine()->getManager();
+
+
+           /*$entityManager = $this->getDoctrine()->getManager();
 
             $recette -> setCreatedAt(new \DateTime());
             $recette-> setUpdatedAt(new \DateTime());
@@ -50,7 +54,7 @@ class RecetteController extends AbstractController
 
 
             $entityManager->persist($recette);
-            $entityManager->flush();
+            $entityManager->flush();*/
 
             return $this->redirectToRoute('created_recette_succes');
         }
