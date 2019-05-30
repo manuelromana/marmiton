@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Form\Recette2Type;
 
 class RecetteController extends AbstractController
 {
@@ -29,13 +30,14 @@ class RecetteController extends AbstractController
 
             $recette = new Recette();
 
-        $form = $this->createFormBuilder($recette)
+        /*$form = $this->createFormBuilder($recette)
             ->add('name', TextType::class)
             ->add('Time', NumberType::class)
             ->add('difficulty', NumberType::class)
             ->add('little_describe', TextType::class)
             ->add('save', SubmitType::class, ['label' => 'Create recette'])
-            ->getForm();
+            ->getForm();*/
+        $form = $this->createForm(Recette2Type::class);
 
         $form->handleRequest($request);
         //var_dump($request);
