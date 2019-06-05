@@ -27,17 +27,8 @@ class RecetteController extends AbstractController
 
         $user = $this->getUser();
 
-
-            $recette = new Recette();
-
-        /*$form = $this->createFormBuilder($recette)
-            ->add('name', TextType::class)
-            ->add('Time', NumberType::class)
-            ->add('difficulty', NumberType::class)
-            ->add('little_describe', TextType::class)
-            ->add('save', SubmitType::class, ['label' => 'Create recette'])
-            ->getForm();*/
         $form = $this->createForm(Recette2Type::class);
+        
 
         $form->handleRequest($request);
         //var_dump($request);
@@ -47,19 +38,18 @@ class RecetteController extends AbstractController
             $createRecette->setRecette($recette,$user);
 
 
-
-           /*$entityManager = $this->getDoctrine()->getManager();
-
-            $recette -> setCreatedAt(new \DateTime());
-            $recette-> setUpdatedAt(new \DateTime());
-            $recette->setUserId($user);
-
-
-            $entityManager->persist($recette);
-            $entityManager->flush();*/
-
-            return $this->redirectToRoute('created_recette_succes');
+            $this->addFlash(
+                'notice',
+                'Your changes were saved!'
+            );
+            return $this->redirectToRoute('add_ingredient', [
+            'recette' => $recette->getId()
+            ]);
+            //return new Response($recette->getTime());
+           //return $this->redirectToRoute('created_recette_succes');
+            //return $this->redirectToRoute('created_recette_succes', $request->query->all());
         }
+
 
         return $this->render('recette/index.html.twig',[
             'form' => $form->createView(),

@@ -6,6 +6,8 @@
         {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
     </head>
     <body>
+
+
     <nav class="navbar navbar-light bg-light">
         <a href="/" class="navbar-brand">Marmiton</a>
         <img src="{{ asset('image/logo.png') }}" width="60px" />
@@ -28,6 +30,11 @@
             {% endif %}
         </form>
     </nav>
+    {% for message in app.flashes('notice') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
         {% block body %}
 
         {% endblock %}

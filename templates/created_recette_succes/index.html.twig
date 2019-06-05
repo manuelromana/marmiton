@@ -9,7 +9,7 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>bravo !! recette créée</h1>
+    <h1>bravo {{ app.user.username}}!! recette {{ recette.name }} créée</h1>
     Get back to <A href="{{ url('welcomepage') }}"><input type="button" action="home" value="home"></A>
 
 
