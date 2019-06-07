@@ -3,10 +3,9 @@ namespace App\Service;
 
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Recette;
-use App\Entity\RecetteHasIngredient;
-use App\Entity\Ingredient;
+use App\Entity\Step;
 
-class HasIngredient
+class AddStep
 {
     private $em;
 
@@ -14,13 +13,16 @@ class HasIngredient
     {
         $this->em = $em;
     }
-    public function addIngredient($recette,$recettehasingredient)
+
+    public function addstep($recette,$step)
     {
         $em = $this->em;
-        $recettehasingredient->setrecette($recette);
-        $em->persist($recettehasingredient);
+        $step->setrecette($recette);
+        $em->persist($step);
         $em->flush();
 
     }
+
+
 
 }

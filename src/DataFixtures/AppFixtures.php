@@ -9,11 +9,15 @@ class AppFixtures extends Fixture
 {
 public function load(ObjectManager $manager)
 {
-
-$ingredient = new Ingredient();
-$ingredient->setName('tomate');
-$ingredient->setCode(1);
-$manager->persist($ingredient);
+$ingredients = array("carotte","farine","beurre","sel","lentilles","miel","curry","eau","vin","sucre");
+$i = 0;
+foreach($ingredients as &$value){
+    $ingredient = new Ingredient();
+    $ingredient->setName($value);
+    $ingredient->setCode($i);
+    $manager->persist($ingredient);
+    $i++;
+}
 
 
 $manager->flush();

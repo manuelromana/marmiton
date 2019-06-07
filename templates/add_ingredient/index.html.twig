@@ -3,5 +3,10 @@
 {% block title %}Hello AddIngredientController!{% endblock %}
 
 {% block body %}
-
+    {{ form_start(form) }}
+    <button type="submit">Ajouter</button>
+    {{ form_end(form) }}
+<div>
+    <h4>Cliquez <a href="{{ path('add_step', {'slug': app.request.get('recette')}) }}">ICI</a> pour renseignez les étapes de votre recettes</h4>
+</div>
 {% endblock %}

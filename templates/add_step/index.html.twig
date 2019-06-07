@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AddStepController!{% endblock %}
+
+{% block body %}
+<style>
+
+</style>
+
+    {{ form_start(form)}}
+    <button >Ajouter etape</button>
+    {{ form_end(form) }}
+    <div>
+    <h4> cliquer <a href="{{ path('fin_recette', {'slug': id}) }}">ici </a>si vous avez fini!</h4>
+    </div>
+{% endblock %}
