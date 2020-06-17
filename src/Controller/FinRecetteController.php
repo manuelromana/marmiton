@@ -33,9 +33,9 @@ class FinRecetteController extends AbstractController
 
         $test = $this->getDoctrine()
             ->getRepository(Ingredient::class)
-            ->find(9);
+            ->find(1);
 
-        dd($test);
+        //dd($test,$recette);
         /*if (!$pro) {
             throw $this->createNotFoundException(
                 'No product found for id '.$id
@@ -43,8 +43,8 @@ class FinRecetteController extends AbstractController
         }*/
 
         //return new Response('Check out this great product: '.$ingredients->getName());
-        /*return $this->render('fin_recette/index.html.twig', [
+        return $this->render('fin_recette/index.html.twig', [
             'controller_name' => 'FinRecetteController',
-        ]);*/
+        ]);
     }
 }
