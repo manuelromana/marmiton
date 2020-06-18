@@ -81,8 +81,5 @@
             "allow-contrib": false,
             "require": "4.2.*"
         }
-    },
-    "post-install-cmd": [
-        "chmod -R 777 public/"
-    ]
+    }
 }
